@@ -1,227 +1,317 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Little Lúa | Baby Clothing Boutique</title>
+  <title>Little Lúa | Baby Boutique</title>
 
   <style>
+    :root {
+      --bg: #fbf6ef;
+      --cream: #fffaf3;
+      --pink: #d9a3a0;
+      --soft-pink: #f3d7d3;
+      --taupe: #8b8176;
+      --text: #514941;
+      --muted: #7d7168;
+      --border: #e9c8c2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: #f8f3ed;
-      color: #3f3a36;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
     header {
-    padding: 30px 20px;
-    text-align: center;
+      text-align: center;
+      padding: 34px 20px 16px;
+      background: linear-gradient(to bottom, #fffaf3, #fbf6ef);
     }
 
-  .logo img {
-    width: min(340px, 85vw);
-    height: auto;
-    display: block;
-    margin: 0 auto 22px;
-  }
+    .logo img {
+      width: min(520px, 92vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 18px;
+    }
 
     nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     nav a {
-      margin-left: 24px;
       text-decoration: none;
-      color: #3f3a36;
-      font-size: 15px;
+      color: var(--taupe);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .hero {
-      min-height: 80vh;
+      min-height: 62vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 56px 20px 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "♡";
+      position: absolute;
+      color: var(--soft-pink);
+      font-size: 120px;
+      opacity: 0.22;
+    }
+
+    .hero::before {
+      top: 40px;
+      left: 8%;
+    }
+
+    .hero::after {
+      bottom: 40px;
+      right: 8%;
     }
 
     .hero-content {
-      max-width: 720px;
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
     }
 
     .tagline {
-      font-size: 16px;
+      font-size: 14px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #9a7b65;
-      margin-bottom: 20px;
+      color: var(--pink);
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: 56px;
-      line-height: 1.1;
-      margin: 0 0 24px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.05;
+      margin: 0 0 26px;
       font-weight: normal;
+      color: #6d6259;
     }
 
     .description {
-      font-size: 20px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      color: #5f5650;
+      font-size: 21px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0 auto 36px;
+      max-width: 720px;
     }
 
     .opening {
       display: inline-block;
-      padding: 14px 28px;
-      border: 1px solid #9a7b65;
-      border-radius: 40px;
+      padding: 15px 34px;
+      border: 1px solid var(--pink);
+      border-radius: 999px;
+      background: var(--cream);
+      color: #9a6f6c;
       font-size: 16px;
-      letter-spacing: 1px;
-      color: #6f5847;
-      background: #fffaf5;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     section {
-      padding: 70px 20px;
+      padding: 76px 20px;
       text-align: center;
     }
 
     .section-inner {
-      max-width: 900px;
+      max-width: 980px;
       margin: auto;
     }
 
     h2 {
-      font-size: 34px;
+      font-size: clamp(32px, 5vw, 48px);
       font-weight: normal;
-      margin-bottom: 20px;
+      color: #6d6259;
+      margin: 0 0 22px;
     }
 
-    .values {
+    .intro {
+      background: #fffaf3;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 40px;
+      margin-top: 44px;
     }
 
     .card {
-      background: #fffaf5;
-      padding: 32px 24px;
-      border-radius: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      background: var(--cream);
+      border: 1px solid #f0d8d2;
+      border-radius: 28px;
+      padding: 36px 26px;
+      box-shadow: 0 12px 28px rgba(120, 90, 70, 0.06);
+    }
+
+    .card .icon {
+      font-size: 28px;
+      color: var(--pink);
+      margin-bottom: 14px;
     }
 
     .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
+      font-size: 24px;
       font-weight: normal;
+      color: #8f6f68;
+      margin: 0 0 14px;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .coming-soon {
+      background: linear-gradient(to bottom, #fbf6ef, #fffaf3);
+    }
+
+    .instagram {
+      margin-top: 24px;
+      font-size: 18px;
+      color: #9a6f6c;
+      letter-spacing: 1px;
     }
 
     footer {
-      padding: 32px 20px;
       text-align: center;
+      padding: 34px 20px;
       font-size: 14px;
-      color: #7c7068;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #fffaf3;
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 16px;
+      .logo img {
+        width: min(390px, 94vw);
       }
 
-      nav a {
-        margin: 0 10px;
+      nav {
+        gap: 18px;
       }
 
-      h1 {
-        font-size: 40px;
+      .description {
+        font-size: 18px;
       }
 
-      .values {
+      .cards {
         grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 20px;
       }
     }
   </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/logo.svg" alt="Little Lúa Logo">
-        </div>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Little Lúa Baby Boutique">
+    </div>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#collection">Collection</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#boutique">Boutique</a>
+      <a href="#estilo">Estilo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-  <main>
+  <main id="inicio">
     <section class="hero">
       <div class="hero-content">
-        <div class="tagline">Baby Clothing Boutique</div>
-        <h1>Beautiful little things for childhood.</h1>
+        <div class="tagline">Baby Boutique</div>
+        <h1>La magia está en los pequeños detalles.</h1>
         <p class="description">
-          A carefully curated baby boutique inspired by soft textures,
-          romantic details, and everyday elegance for your little one.
+          Boutique infantil cuidadosamente seleccionada, inspirada en texturas suaves,
+          detalles románticos y la belleza de vestir cada etapa con dulzura.
         </p>
-        <div class="opening">Opening July</div>
+        <div class="opening">Abriendo próximamente</div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="boutique" class="intro">
       <div class="section-inner">
-        <h2>Made for beautiful beginnings</h2>
+        <h2>Pequeñas piezas, grandes recuerdos</h2>
         <p class="description">
-          Little Lúa brings together sweet, high-quality baby clothing and
-          accessories with a boutique feel — soft, charming, and thoughtfully selected.
+          En Little Lúa reunimos prendas y detalles especiales para bebés y niños,
+          con una estética suave, delicada y atemporal.
         </p>
       </div>
     </section>
 
-    <section id="collection">
+    <section id="estilo">
       <div class="section-inner">
-        <h2>Our Boutique Style</h2>
+        <h2>Nuestro estilo</h2>
 
-        <div class="values">
+        <div class="cards">
           <div class="card">
-            <h3>Soft Essentials</h3>
-            <p>Comfortable pieces for everyday wear.</p>
+            <div class="icon">✿</div>
+            <h3>Texturas suaves</h3>
+            <p>Prendas cómodas, delicadas y pensadas para acompañar sus primeros momentos.</p>
           </div>
 
           <div class="card">
-            <h3>Romantic Details</h3>
-            <p>Delicate textures, sweet prints, and timeless colors.</p>
+            <div class="icon">♡</div>
+            <h3>Detalles románticos</h3>
+            <p>Colores dulces, acabados especiales y diseños con encanto boutique.</p>
           </div>
 
           <div class="card">
-            <h3>European Inspired</h3>
-            <p>Carefully selected collections inspired by timeless children's boutiques.</p>
+            <div class="icon">⋒</div>
+            <h3>Selección especial</h3>
+            <p>Piezas cuidadosamente elegidas para quienes aman lo tierno, único y diferente.</p>
           </div>
-          
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contacto" class="coming-soon">
       <div class="section-inner">
-        <h2>Coming Soon</h2>
+        <h2>Muy pronto</h2>
         <p class="description">
-          Our online boutique opens this July. Follow us for launch updates,
-          first drops, and special previews.
+          Nuestra tienda en línea abrirá próximamente. Síguenos para conocer los primeros lanzamientos,
+          novedades y detalles especiales de Little Lúa.
         </p>
-        <p>@littlelua</p>
+        <div class="instagram">@little.lua</div>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2026 Little Lúa. All rights reserved.
+    © 2026 Little Lúa Baby Boutique. Todos los derechos reservados.
   </footer>
 </body>
 </html>
